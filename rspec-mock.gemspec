@@ -22,12 +22,12 @@ Gem::Specification.new do |spec|
     'bug_tracker_uri' => 'https://github.com/mocktools/ruby-rspec-mock/issues'
   }
 
-  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_ruby_version = '>= 2.4.0'
   spec.files = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(bin|lib)/|.ruby-version|rspec-mock.gemspec|LICENSE}) }
   spec.require_paths = %w[lib]
 
-  spec.add_runtime_dependency 'rspec-core', '~> 3.13', '>= 3.13.2'
-  spec.add_runtime_dependency 'rspec-mocks', '~> 3.13', '>= 3.13.2'
+  spec.add_runtime_dependency 'rspec-core', '~> 3.10'
+  spec.add_runtime_dependency 'rspec-mocks', '~> 3.10'
 
   spec.add_development_dependency 'rspec', '~> 3.13'
 end
