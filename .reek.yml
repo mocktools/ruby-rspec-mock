@@ -1,0 +1,14 @@
+---
+
+detectors:
+  IrresponsibleModule:
+    enabled: false
+
+  BooleanParameter:
+    exclude:
+      - RSpec::Mock::Context#respond_to_missing?
+
+  ManualDispatch:
+    exclude:
+      - RSpec::Mock::Context#method_missing
+      - RSpec::Mock::Context#respond_to_missing?
