@@ -15,5 +15,11 @@ RSpec.configure do |config|
   config.disable_monkey_patching!
   config.order = :random
 
+  config.rspec_mock do |mock|
+    mock.verify_partial_doubles = true
+  end
+
+  config.include RSpec::Mock::Methods
+
   ::Kernel.srand(config.seed)
 end

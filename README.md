@@ -1,7 +1,7 @@
 # Seamless migration from third-party mocks to RSpec built-in mocking framework
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/5ea9da61ef468b8ad4c4/maintainability)](https://codeclimate.com/github/mocktools/ruby-rspec-mock/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/5ea9da61ef468b8ad4c4/test_coverage)](https://codeclimate.com/github/mocktools/ruby-rspec-mock/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8a7a9ca7f590838bf02f/maintainability)](https://codeclimate.com/github/mocktools/ruby-rspec-mock/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/8a7a9ca7f590838bf02f/test_coverage)](https://codeclimate.com/github/mocktools/ruby-rspec-mock/test_coverage)
 [![CircleCI](https://circleci.com/gh/mocktools/ruby-rspec-mock/tree/master.svg?style=svg)](https://circleci.com/gh/mocktools/ruby-rspec-mock/tree/master)
 [![Gem Version](https://badge.fury.io/rb/rspec-mock.svg)](https://badge.fury.io/rb/rspec-mock)
 [![Downloads](https://img.shields.io/gem/dt/rspec-mock.svg?colorA=004d99&colorB=0073e6)](https://rubygems.org/gems/rspec-mock)
