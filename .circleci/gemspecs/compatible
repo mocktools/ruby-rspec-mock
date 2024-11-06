@@ -16,8 +16,10 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = %w[lib]
 
+  spec.add_runtime_dependency 'colorize', '>= 0.8.1'
   spec.add_runtime_dependency 'rspec-core', '~> 3.10'
   spec.add_runtime_dependency 'rspec-mocks', '~> 3.10'
+  spec.add_runtime_dependency 'terminal-table', '~> 3.0'
 
   spec.add_development_dependency 'rspec', '~> 3.13'
 end
