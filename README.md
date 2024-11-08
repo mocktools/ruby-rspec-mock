@@ -138,10 +138,10 @@ Example of the Rake task:
 namespace :rspec_mock do
   namespace :migration_analytics do
     desc 'Analyze Flexmock usage and track migration progress to RSpec mocks'
-    task :flexmock, %i[path] do |_, args|
+    task :flexmock do
       require 'rspec/mock/migration_analytics/cli'
 
-      path = args[:path] || 'spec'
+      path = ::ARGV[1] || 'spec'
       puts("\n🔍 Analyzing Flexmock usage in: #{path}")
       RSpec::Mock::MigrationAnalytics::Cli.verify_path(path)
     end
