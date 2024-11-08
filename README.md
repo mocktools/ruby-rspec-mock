@@ -18,6 +18,7 @@
 - [Usage](#usage)
   - [Configuration](#configuration)
   - [Integration](#integration)
+  - [Migration Analytics](#migration-analytics)
 - [Contributing](#contributing)
 - [License](#license)
 - [Code of Conduct](#code-of-conduct)
@@ -125,6 +126,46 @@ RSpec.describe Sandbox do
     end
   end
 end
+```
+
+### Migration Analytics
+
+You can create a Rake task to analyze Flexmock usage and track migration progress to RSpec mocks. Or use the CLI directly.
+
+Example of the Rake task:
+
+```ruby
+namespace :rspec_mock do
+  namespace :migration_analytics do
+    desc 'Analyze Flexmock usage and track migration progress to RSpec mocks'
+    task :flexmock, %i[path] do |_, args|
+      require 'rspec/mock/migration_analytics/cli'
+
+      path = args[:path] || 'spec'
+      puts("\n🔍 Analyzing Flexmock usage in: #{path}")
+      RSpec::Mock::MigrationAnalytics::Cli.verify_path(path)
+    end
+  end
+end
+```
+
+```bash
+# Analyze entire spec directory (default)
+rake rspec_mock:migration_analytics:flexmock
+
+# Analyze specific directory
+rake rspec_mock:migration_analytics:flexmock spec/services
+
+# Analyze specific file
+rake rspec_mock:migration_analytics:flexmock spec/services/sandbox_service_spec.rb
+```
+
+Example of the CLI usage:
+
+```bash
+ruby cli.rb spec
+ruby cli.rb spec/services
+ruby cli.rb spec/services/sandbox_service_spec.rb
 ```
 
 ## Contributing
