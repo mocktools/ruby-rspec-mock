@@ -8,7 +8,14 @@ detectors:
     exclude:
       - RSpec::Mock::Context#respond_to_missing?
 
+  UtilityFunction:
+    exclude:
+      - ContextHelper#create_file
+
   ManualDispatch:
     exclude:
       - RSpec::Mock::Context#method_missing
       - RSpec::Mock::Context#respond_to_missing?
+
+exclude_paths:
+  - lib/rspec/mock/migration_analytics/

@@ -19,6 +19,7 @@ RSpec.configure do |config|
     mock.verify_partial_doubles = true
   end
 
+  config.include ContextHelper
   config.include RSpec::Mock::Methods
 
   ::Kernel.srand(config.seed)
