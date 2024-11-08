@@ -4,6 +4,11 @@
 require 'colorize'
 require 'terminal-table'
 
+require_relative 'tracker/base'
+require_relative 'tracker/flexmock'
+require_relative 'tracker/rspec'
+require_relative 'file_analyzer'
+
 module RSpec
   module Mock
     module MigrationAnalytics
@@ -183,3 +188,5 @@ module RSpec
     end
   end
 end
+
+RSpec::Mock::MigrationAnalytics::Cli.call if __FILE__.eql?($PROGRAM_NAME)
