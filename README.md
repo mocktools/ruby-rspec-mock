@@ -130,24 +130,17 @@ end
 
 ### Migration Analytics
 
-You can create a Rake task to analyze Flexmock usage and track migration progress to RSpec mocks. Or use the CLI directly.
+This time implemented migration analytics for [Flexmock](https://github.com/doudou/flexmock) only. You can run Rake task to analyze Flexmock usage and track migration progress to RSpec mocks.
 
-Example of the Rake task:
+For non-Rails applications to use the task, you need to load it:
 
 ```ruby
-namespace :rspec_mock do
-  namespace :migration_analytics do
-    desc 'Analyze Flexmock usage and track migration progress to RSpec mocks'
-    task :flexmock do
-      require 'rspec/mock/migration_analytics/cli'
+require 'rspec/mock/task'
 
-      path = ::ARGV[1] || 'spec'
-      puts("\n🔍 Analyzing Flexmock usage in: #{path}")
-      RSpec::Mock::MigrationAnalytics::Cli.verify_path(path)
-    end
-  end
-end
+RSpec::Mock::Task.load
 ```
+
+For Rails applications it will be automatically loaded, so just run:
 
 ```bash
 # Analyze entire spec directory (default)
@@ -158,14 +151,6 @@ rake rspec_mock:migration_analytics:flexmock spec/services
 
 # Analyze specific file
 rake rspec_mock:migration_analytics:flexmock spec/services/sandbox_service_spec.rb
-```
-
-Example of the CLI usage:
-
-```bash
-ruby cli.rb spec
-ruby cli.rb spec/services
-ruby cli.rb spec/services/sandbox_service_spec.rb
 ```
 
 ## Contributing
