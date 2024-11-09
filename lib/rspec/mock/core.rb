@@ -13,13 +13,15 @@ module RSpec
       end
 
       require_relative 'migration_analytics/file_analyzer'
-      require_relative 'migration_analytics/cli'
+      require_relative 'migration_analytics/printer'
     end
 
     require_relative 'configuration'
     require_relative 'context'
     require_relative 'methods'
     require_relative 'version'
+
+    require_relative(defined?(::Rails) ? 'railtie' : 'task')
   end
 
   module Core

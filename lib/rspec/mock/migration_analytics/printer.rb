@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 # frozen_string_literal: true
 
 require 'colorize'
@@ -12,38 +11,15 @@ require_relative 'file_analyzer'
 module RSpec
   module Mock
     module MigrationAnalytics
-      class Cli
+      class Printer
         class << self
-          def call
-            if ::ARGV.empty?
-              print_usage
-              exit 1
-            end
+          def call(path)
+            return verify_directory(path) if ::File.directory?(path)
 
-            begin
-              verify_path(::ARGV[0])
-            rescue => error
-              puts("\n❌ Error: #{error.message}".red)
-              puts(error.backtrace) if ENV['DEBUG']
-            end
-          end
-
-          def verify_path(path)
-            case
-            when ::File.directory?(path) then verify_directory(path)
-            else verify_file(path)
-            end
+            verify_file(path)
           end
 
           private
-
-          def print_usage
-            puts('Usage: ruby cli.rb <path_to_spec_file_or_directory>'.yellow)
-            puts("\nExamples:".blue)
-            puts('  ruby cli.rb spec/models/user_spec.rb')
-            puts('  ruby cli.rb spec/models/')
-            puts('  ruby cli.rb spec/')
-          end
 
           def verify_directory(dir_path) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
             results = []
@@ -188,5 +164,3 @@ module RSpec
     end
   end
 end
-
-RSpec::Mock::MigrationAnalytics::Cli.call if __FILE__.eql?($PROGRAM_NAME)
