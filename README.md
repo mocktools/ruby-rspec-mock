@@ -34,7 +34,7 @@
 
 ## Requirements
 
-Ruby MRI 2.5.0+
+Ruby MRI 2.4.0+
 
 ## Installation
 
