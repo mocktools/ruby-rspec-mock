@@ -4,8 +4,9 @@ require 'tempfile'
 
 module ContextHelper
   def create_result(options)
-    @result_class ||= ::Struct.new(*options.keys, keyword_init: true)
-    @result_class.new(**options)
+    # Here is compatibility with Ruby 2.4
+    @result_class ||= ::Struct.new(*options.keys)
+    @result_class.new.tap { |result| options.each { |key, value| result[key] = value } }
   end
 
   def create_file
